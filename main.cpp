@@ -235,7 +235,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 						damageFlag = 1;
 					}
 
-					if (damageFlag == 1 ) {
+					if (damageFlag == 1) {
 						damageCount += 1;
 						sceneCount += 1;
 						damageFlag = 0;
@@ -247,18 +247,18 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			}
 
 
-			if (sceneCount == 3) {
-				selectCount = 0;
-				countTrue = 0;
-				enemyCount = 0;
-				for (int i = 0; i < 3; i++) {
-					locationCount[i] = 0;
-					player[i].x = 0;
-				}
 
-				phase = CHOOSE;
-
+			selectCount = 0;
+			countTrue = 0;
+			enemyCount = 0;
+			for (int i = 0; i < 3; i++) {
+				locationCount[i] = 0;
+				player[i].x = 0;
 			}
+
+			phase = CHOOSE;
+
+
 
 
 			break;
@@ -302,7 +302,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		Novice::ScreenPrintf(0, 20 * 11, "countTrue%d", countTrue);
 		Novice::ScreenPrintf(0, 20 * 12, "%d", enemyCount);
 		Novice::ScreenPrintf(0, 20 * 13, "damage%d", damageCount);
-		Novice::ScreenPrintf(0, 20 * 14, "phase%d", sceneCount);
+		Novice::ScreenPrintf(0, 20 * 14, "sceneCount%d", sceneCount);
 
 
 
