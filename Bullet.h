@@ -5,11 +5,13 @@
 class Bullet
 {
 public:
-	void Inisialize();
+	void Initialize();
 
-	void Updata();
+	void Update();
 
 	void Draw();
+
+	void Damage();
 
 	bool IsSelectEnd();
 
@@ -46,8 +48,12 @@ private:
 	int paper = Novice::LoadTexture("./bulletPB.png");
 	int scissors = Novice::LoadTexture("./bulletCB.png");
 
-
-
+	int HP = 3;
+	int timer = 0;
+	int ship = Novice::LoadTexture("./Ship.png");
+	int shipFire = Novice::LoadTexture("./ShipFire.png");
+	int heart = Novice::LoadTexture("./player heart.png");
+	int flag = 0;
 
 };
 

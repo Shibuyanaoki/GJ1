@@ -7,23 +7,19 @@ class Ship
 {
 
 public:
-	void Inisialize();
+	void Initialize();
 
-	void Updata();
+	void Update();
 
 	void Draw();
 
-	void Fire();
+	bool FireDraw();
 
 	void Damage();
 
 private:
 
-	int HP = 3;
-	Bullet* bullet_ = nullptr;
-	int timer = 0;
-	int ship = Novice::LoadTexture("./Ship.png");
-	int shipFire = Novice::LoadTexture("./ShipFire.png");
+	
 
 };
 

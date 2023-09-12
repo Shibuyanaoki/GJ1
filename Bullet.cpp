@@ -1,10 +1,10 @@
 ﻿#include "Bullet.h"
 
-void Bullet::Inisialize() {
+void Bullet::Initialize() {
 	input_ = Input::GetInstance();
 }
 
-void Bullet::Updata() {
+void Bullet::Update() {
 
 
 	if (selectCount == 0 && selectFlag == 0) {
@@ -105,18 +105,51 @@ void Bullet::Updata() {
 }
 
 void Bullet::Draw() {
+
+	if (flag==1) {
+		timer++;
+	}
+
+	if (timer >= 10) {
+		flag = 0;
+		timer = 0;
+	}
+
+	Novice::DrawSprite(0, 0, ship, 1, 1, 0.0, WHITE);
+
+	if (flag == 1) {
+		Novice::DrawSprite(0, 0, shipFire, 1, 1, 0.0f, WHITE);
+	}
+
+
+	Novice::ScreenPrintf(0, 20 * 1, "ship->HP%d", HP);
+
+	if (HP >= 3) {
+		Novice::DrawSprite(572, 650, heart, 1, 1, 0.0, WHITE);
+	}
+
+	if (HP >= 2) {
+		Novice::DrawSprite(620, 650, heart, 1, 1, 0.0, WHITE);
+	}
+
+	if (HP >= 1) {
+		Novice::DrawSprite(668, 650, heart, 1, 1, 0.0, WHITE);
+	}
+
 	for (int i = 0; i < 3; i++) {
 		Novice::DrawSprite((int)bullet[0].x, (int)bullet[0].y, rock, 1, 1, 0.0, WHITE);
 		Novice::DrawSprite((int)bullet[1].x, (int)bullet[1].y, scissors, 1, 1, 0.0, WHITE);
 		Novice::DrawSprite((int)bullet[2].x, (int)bullet[2].y, paper, 1, 1, 0.0, WHITE);
 
 	}
+
 }
 
 bool Bullet::IsSelectEnd()
 {
-	if (selectCount == 3) {
-		if (input_->PushKey(DIK_RETURN)) {
+	if (input_->PushKey(DIK_RETURN)) {
+		if (selectCount == 3) {
+			flag = 1;
 			return true;
 		}
 
@@ -136,3 +169,6 @@ void Bullet::Reset()
 	}
 }
 
+void Bullet::Damage() {
+	HP -= 1;
+}

@@ -22,7 +22,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	GamePlay* gamePlay = new GamePlay;
 	
 
-	gamePlay->Inisialize();
+	gamePlay->Initialize();
 
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {
@@ -37,7 +37,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓更新処理ここから
 		///
 		
-		gamePlay->Updata();
+		gamePlay->Update();
 		
 		///
 		/// ↑更新処理ここまで

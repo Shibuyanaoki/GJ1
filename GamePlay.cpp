@@ -1,26 +1,36 @@
 #include "GamePlay.h"
 
-void GamePlay::Inisialize() {
+void GamePlay::Initialize() {
 
 	bullet_ = new Bullet;
 	enemy_ = new Enemy;
-	ship_ = new Ship;
+	//ship_ = new Ship;
 
-	bullet_->Inisialize();
-	enemy_->Inisialize();
-	ship_->Inisialize();
+	bullet_->Initialize();
+	enemy_->Initialize();
+	//ship_->Initialize();
 }
 
-void GamePlay::Updata() {
+void GamePlay::Update() {
 
 	switch (phase_) {
 	case Phase::CHOOSE:
 
-		bullet_->Updata();
-		enemy_->Updata();
+		timer--;
+
+		enemy_->Update();
+
+		if (timer >= 0) {
+			bullet_->Update();
+		}
 
 		if (bullet_->IsSelectEnd() == true) {
 			phase_ = Phase::FIRE;
+		}
+
+		if (timer <= 0) {
+			phase_ = Phase::FIRE;
+			timer = 60 * 5;
 		}
 
 		break;
@@ -33,18 +43,21 @@ void GamePlay::Updata() {
 			bullet_->GetLocationCount(2) == enemy_->GetLocationCount(2))
 		{
 			enemy_->Damage();
+			enemy_->Flag();
 		}
 
 
 		for (int i = 0; i < 3; i++) {
 			if (bullet_->GetLocationCount(i) != enemy_->GetLocationCount(i)) {
-				ship_->Damage();
+				bullet_->Damage();
 				break;
 			}
 		}
 
+
 		bullet_->Reset();
 		enemy_->Reset();
+		timer = 60 * 5;
 
 		phase_ = Phase::CHOOSE;
 
@@ -67,21 +80,8 @@ void GamePlay::Draw() {
 		Novice::DrawSprite(0, 0, sea[1], 1, 1, 0.0, WHITE);
 	}
 
-	
-
-	Novice::ScreenPrintf(0, 20 * 2, "timer%d", animationTimer);
+	Novice::ScreenPrintf(0, 20 * 2, "timer%d", timer);
 	enemy_->Draw();
-	ship_->Draw();
 	bullet_->Draw();
-
-	if (bullet_->IsSelectEnd() == true) {
-		if (animationTimer <= 60) {
-			ship_->Fire();
-		}
-	}
-
-	if (animationTimer >= 60) {
-		animationTimer = 0;
-	}
 
 }

@@ -5,11 +5,13 @@
 #include<time.h>
 class Enemy {
 public:
-	void Inisialize();
+	void Initialize();
 
-	void Updata();
+	void Update();
 
 	void Draw();
+
+	void Flag();
 
 	int GetLocationCount(int index) {
 		return locationCount[index];
@@ -49,8 +51,11 @@ private:
 	int enemyCount = 0;
 	// 値を入れ替えるための一時的な変数
 	int temp = 0;
+	int flag = 0;
+	int timer = 0;
 
 	int ika = Novice::LoadTexture("./ika.png");
+	int ika2 = Novice::LoadTexture("./ika2.png");
 
 	int rock = Novice::LoadTexture("./bulletG.png");
 	int paper = Novice::LoadTexture("./bulletP.png");

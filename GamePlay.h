@@ -7,9 +7,9 @@
 class GamePlay
 {
 public:
-	void Inisialize();
+	void Initialize();
 
-	void Updata();
+	void Update();
 
 	void Draw();
 
@@ -21,7 +21,8 @@ private:
 	Phase phase_ = Phase::CHOOSE;
 
 	int animationTimer = 0;
-	int timer = 60;
+	int timer = 60*5;
+
 	int kumo = Novice::LoadTexture("./kumo.png");
 
 	int sea[2] = {
