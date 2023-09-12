@@ -36,6 +36,7 @@ void Enemy::Updata()
 		for (int i = 0; i < 3; i++) {
 
 			enemy[i].x = location[count[i]].x;
+			enemy[i].y = location[count[i]].y;
 
 			locationCount[i] = count[i];
 		}
@@ -44,14 +45,13 @@ void Enemy::Updata()
 
 void Enemy::Draw()
 {
-	for (int i = 0; i < 3; i++) {
-		Novice::DrawEllipse((int)enemy[0].x, (int)enemy[0].y, 32, 32, 0.0f, WHITE, kFillModeSolid);
-		Novice::DrawEllipse((int)enemy[1].x, (int)enemy[1].y, 32, 32, 0.0f, RED, kFillModeSolid);
-		Novice::DrawEllipse((int)enemy[2].x, (int)enemy[2].y, 32, 32, 0.0f, GREEN, kFillModeSolid);
-	}
+	Novice::DrawSprite(0, 0, ika, 1.7f, 1.5f, 0.0, WHITE);
 
-	Novice::ScreenPrintf(0, 0 * 20, "HP%d", HP);
+	Novice::ScreenPrintf(0, 20 * 0, "enemy->HP%d", HP);
 
+	Novice::DrawSprite((int)enemy[0].x, (int)enemy[0].y, scissors, 1.5, 1.5, 0.0, WHITE);
+	Novice::DrawSprite((int)enemy[1].x, (int)enemy[1].y, paper, 1.5, 1.5, 0.0, WHITE);
+	Novice::DrawSprite((int)enemy[2].x, (int)enemy[2].y, rock, 1.5, 1.5, 0.0, WHITE);
 }
 
 void Enemy::Damage()
@@ -61,5 +61,5 @@ void Enemy::Damage()
 
 void Enemy::Reset() {
 	enemyCount = 0;
-	
+
 }

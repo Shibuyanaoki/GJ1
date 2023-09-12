@@ -23,17 +23,17 @@ public:
 private:
 
 	Vector2 bullet[3] = {
-		{0,0},
-		{0,0},
-		{0,0},	
+		{1052,650},
+		{1132,650},
+		{1212,650},
 	};
 	Vector2 location[3] = {
-		{320,540},
-		{640,540},
-		{960,540},
+		{300,540},
+		{760,540},
+		{1140,540},
 	};
 
-	
+
 	//弾がどこに設置されたか確認する変数
 	int locationCount[3] = {};
 	//弾を設置したときに立つフラグ
@@ -42,7 +42,12 @@ private:
 	int selectCount = 0;
 	Input* input_ = nullptr;
 
-	
+	int rock = Novice::LoadTexture("./bulletGB.png");
+	int paper = Novice::LoadTexture("./bulletPB.png");
+	int scissors = Novice::LoadTexture("./bulletCB.png");
+
+
+
 
 };
 
