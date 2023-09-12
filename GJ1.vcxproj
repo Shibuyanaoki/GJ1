@@ -110,7 +110,6 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="GamePlay.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Ship.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
@@ -143,7 +142,6 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="GamePlay.h" />
     <ClInclude Include="Scene.h" />
-    <ClInclude Include="Ship.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

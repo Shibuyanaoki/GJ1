@@ -3,7 +3,6 @@
 #include "Enemy.h"
 #include "Scene.h"
 #include "Novice.h"
-#include "Ship.h"
 class GamePlay
 {
 public:
@@ -17,7 +16,6 @@ private:
 
 	Bullet* bullet_ = nullptr;
 	Enemy* enemy_ = nullptr;
-	Ship* ship_ = nullptr;
 	Phase phase_ = Phase::CHOOSE;
 
 	int animationTimer = 0;
