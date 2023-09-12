@@ -4,11 +4,11 @@ void GamePlay::Initialize() {
 
 	bullet_ = new Bullet;
 	enemy_ = new Enemy;
-	//ship_ = new Ship;
+	
 
 	bullet_->Initialize();
 	enemy_->Initialize();
-	//ship_->Initialize();
+	
 }
 
 void GamePlay::Update() {
@@ -30,7 +30,7 @@ void GamePlay::Update() {
 
 		if (timer <= 0) {
 			phase_ = Phase::FIRE;
-			timer = 60 * 5;
+			timer = 60 * 4;
 		}
 
 		break;
@@ -43,7 +43,6 @@ void GamePlay::Update() {
 			bullet_->GetLocationCount(2) == enemy_->GetLocationCount(2))
 		{
 			enemy_->Damage();
-			enemy_->Flag();
 		}
 
 
@@ -83,5 +82,7 @@ void GamePlay::Draw() {
 	Novice::ScreenPrintf(0, 20 * 2, "timer%d", timer);
 	enemy_->Draw();
 	bullet_->Draw();
+
+	Novice::DrawBox(102, 420, -32, -timer , 0.0, GREEN, kFillModeSolid);
 
 }

@@ -11,8 +11,6 @@ public:
 
 	void Draw();
 
-	void Flag();
-
 	int GetLocationCount(int index) {
 		return locationCount[index];
 	}
@@ -24,8 +22,6 @@ public:
 private:
 	//敵がどこに設置されたか確認する変数
 	int locationCount[3] = {};
-
-	int HP = 6;
 
 	Vector2 enemy[3] = {
 		{320,50},
@@ -56,6 +52,14 @@ private:
 
 	int ika = Novice::LoadTexture("./ika.png");
 	int ika2 = Novice::LoadTexture("./ika2.png");
+
+	int HPBar[3] = {
+		{Novice::LoadTexture("./HP3.png")},//0
+		{Novice::LoadTexture("./HP2.png")},//1
+		{Novice::LoadTexture("./HP1.png")},//2
+	};
+
+	int HP = 10;
 
 	int rock = Novice::LoadTexture("./bulletG.png");
 	int paper = Novice::LoadTexture("./bulletP.png");

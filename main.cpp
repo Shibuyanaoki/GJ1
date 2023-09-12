@@ -13,6 +13,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	// ライブラリの初期化
 	Novice::Initialize(kWindowTitle, 1280, 720);
 
+	Scene scene = Scene::TITLE;
+
 	// キー入力結果を受け取る箱
 	char keys[256] = { 0 };
 	char preKeys[256] = { 0 };
@@ -20,7 +22,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	Input* input = Input::GetInstance();
 
 	GamePlay* gamePlay = new GamePlay;
-	
+
 
 	gamePlay->Initialize();
 
@@ -36,19 +38,47 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		///
 		/// ↓更新処理ここから
 		///
-		
+
+		switch (scene)
+		{
+		case Scene::TITLE:
+
+
+			break;
+
+		case Scene::SELECT:
+
+			break;
+
+		case Scene::GAME:
+
+
+			break;
+
+		case Scene::GAMECLEAR:
+
+			break;
+
+		case Scene::GAMEOVER:
+
+			break;
+
+
+		}
+
+
 		gamePlay->Update();
-		
+
 		///
 		/// ↑更新処理ここまで
 		///
-		
+
 		///
 		/// ↓描画処理ここから
 		///
-		
+
 		gamePlay->Draw();
-		
+
 		///
 		/// ↑描画処理ここまで
 		///

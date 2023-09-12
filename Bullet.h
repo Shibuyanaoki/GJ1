@@ -50,10 +50,13 @@ private:
 
 	int HP = 3;
 	int timer = 0;
+	int flag = 0;
 	int ship = Novice::LoadTexture("./Ship.png");
 	int shipFire = Novice::LoadTexture("./ShipFire.png");
 	int heart = Novice::LoadTexture("./player heart.png");
-	int flag = 0;
+
+	int reset = Novice::LoadTexture("./buttonReset.png");
+	int enter = Novice::LoadTexture("./buttonEnter.png");
 
 };
 

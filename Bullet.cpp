@@ -125,15 +125,15 @@ void Bullet::Draw() {
 	Novice::ScreenPrintf(0, 20 * 1, "ship->HP%d", HP);
 
 	if (HP >= 3) {
-		Novice::DrawSprite(572, 650, heart, 1, 1, 0.0, WHITE);
+		Novice::DrawSprite(560, 640, heart, 2, 2, 0.0, WHITE);
 	}
 
 	if (HP >= 2) {
-		Novice::DrawSprite(620, 650, heart, 1, 1, 0.0, WHITE);
+		Novice::DrawSprite(620, 640, heart, 2, 2, 0.0, WHITE);
 	}
 
 	if (HP >= 1) {
-		Novice::DrawSprite(668, 650, heart, 1, 1, 0.0, WHITE);
+		Novice::DrawSprite(680, 640, heart, 2, 2, 0.0, WHITE);
 	}
 
 	for (int i = 0; i < 3; i++) {
@@ -142,6 +142,9 @@ void Bullet::Draw() {
 		Novice::DrawSprite((int)bullet[2].x, (int)bullet[2].y, paper, 1, 1, 0.0, WHITE);
 
 	}
+
+	Novice::DrawSprite(32, 100 + 32 * 16, reset, 1, 1, 0.0, WHITE);
+	Novice::DrawSprite(120, 100 + 32 * 16, enter, 1, 1, 0.0, WHITE);	
 
 }
 
